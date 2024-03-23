@@ -14,5 +14,10 @@ module.exports = {
     alias: {
       '@': resolve('src')
     }
+  },
+  style: {
+    postcssOptions: {
+      plugins: [require('tailwindcss'), require('autoprefixer')]
+    }
   }
 }
