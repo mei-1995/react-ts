@@ -1,9 +1,11 @@
-import React, { memo } from 'react'
+import React, { memo, useMemo } from 'react'
 import type { FC, ReactNode } from 'react'
 import MyButton from '../../components/MyButton'
 import styles from './index.module.less'
 import classNames from 'classnames'
 import styled from 'styled-components'
+import HocPermissio from '../../components/HocPermisson'
+import HocPermission from '../../components/HocPermisson'
 
 interface IProps {
   children?: ReactNode
@@ -28,6 +30,8 @@ const Mime: FC<IProps> = () => {
     },
     ['background', 'font']
   )
+
+  const HocElement: any = useMemo(() => <div>index页面</div>, [])
   return (
     <div className={styles.mimeWrap}>
       <MyButton
@@ -40,8 +44,10 @@ const Mime: FC<IProps> = () => {
       <StyledButton primary>css in js</StyledButton>
 
       <div className={tailwindClasses}>tailwind</div>
+
+      <h1 className="font-bold text-[20px]">hoc 权限</h1>
     </div>
   )
 }
 
-export default memo(Mime)
+export default memo(HocPermission('tag')(Mime))

@@ -18,7 +18,6 @@ const MyButton: React.FC<IProps> = ({
   ...rest
 }) => {
   const [isDeleting, setIsDeleting] = useState(false)
-  console.log('reset', rest)
 
   const handleClick = async () => {
     setIsDeleting(true)
